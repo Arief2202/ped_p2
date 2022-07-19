@@ -14,5 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        UserSeeder::run();
+        WitelSeeder::run();
+        StoSeeder::run();
+        DesignatorSeeder::run();
     }
 }
