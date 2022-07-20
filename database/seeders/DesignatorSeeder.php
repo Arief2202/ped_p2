@@ -15,7 +15,7 @@ class DesignatorSeeder extends Seeder
     public static function run()
     {
         Designator::insert([
-            ['designator' => 'DC-OF-SM-12D', 'deskripsi' => 'Pengadaan dan pemasangan Kabel Duct Fiber Optik Single Mode 12 core G 652 D', 'satuan' => 'meter', 'p5_material' => '8872', 'p5_jasa' => '3125', 'p10_material' => '9913', 'p10_jasa' => '3354', 'jenis_material' => NULL, 'specs' => NULL],
+            ['designator' => 'DC-OF-SM-12D', 'deskripsi' => 'Pengadaan dan pemasangan Kabel Duct Fiber Optik Single Mode 12 core G 652 D', 'satuan' => 'meter', 'p5_material' => '8872', 'p5_jasa' => '3125', 'p10_material' => '9913', 'p10_jasa' => '3354', 'jenis_material' => 'kabel', 'specs' => '12'],
             ['designator' => 'DC-OF-SM-24D', 'deskripsi' => 'Pengadaan dan pemasangan Kabel Duct Fiber Optik Single Mode 24 core G 652 D', 'satuan' => 'meter', 'p5_material' => '11577', 'p5_jasa' => '3125', 'p10_material' => '12935', 'p10_jasa' => '3354', 'jenis_material' => NULL, 'specs' => NULL],
             ['designator' => 'DC-OF-SM-48D', 'deskripsi' => 'Pengadaan dan pemasangan Kabel Duct Fiber Optik Single Mode 48 core G 652 D', 'satuan' => 'meter', 'p5_material' => '17056', 'p5_jasa' => '3125', 'p10_material' => '19056', 'p10_jasa' => '3354', 'jenis_material' => NULL, 'specs' => NULL],
             ['designator' => 'DC-OF-SM-96D', 'deskripsi' => 'Pengadaan dan pemasangan Kabel Duct Fiber Optik Single Mode 96 core G 652 D', 'satuan' => 'meter', 'p5_material' => '31011', 'p5_jasa' => '3125', 'p10_material' => '34647', 'p10_jasa' => '3354', 'jenis_material' => NULL, 'specs' => NULL],
