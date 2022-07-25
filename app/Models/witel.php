@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Witel extends Model
 {
     use HasFactory;
+
+
 }

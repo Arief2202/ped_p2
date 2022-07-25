@@ -19,6 +19,7 @@ class WitelSeeder extends Seeder
             ['nama_witel' => 'JEMBER', 'paket' => 5],
             ['nama_witel' => 'KEDIRI', 'paket' => 5],
             ['nama_witel' => 'NTT', 'paket' => 10], //kupang
+            ['nama_witel' => 'NTB', 'paket' => 10],
             ['nama_witel' => 'MADIUN', 'paket' => 5],
             ['nama_witel' => 'MADURA', 'paket' => 5],
             ['nama_witel' => 'MALANG', 'paket' => 5],

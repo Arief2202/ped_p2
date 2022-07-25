@@ -47,6 +47,10 @@ body{
     color: #fff;
 }
 
+input[type="month"]::-webkit-calendar-picker-indicator{
+    background: #0000;
+}
+
 body.dark{
     --body-color: #18191a;
     --sidebar-color: #242526;
@@ -242,4 +246,11 @@ body.dark .home .text{
 
 .error .tableAction{
     color: var(--icon-color);
+}
+
+input:checked {
+    border: none;
+    color: #4491DF;
+    outline: 2px solid #4491DF;
+    border-radius: 2px;
 }

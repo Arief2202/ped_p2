@@ -18,9 +18,6 @@ class CreateKHSDesignatorsTable extends Migration
             $table->integer("khs_id");
             $table->integer("designator_id");
             $table->integer("jumlah");
-            $table->integer("total_material");
-            $table->integer("total_jasa");
-            $table->integer("total");
             $table->timestamps();
         });
     }

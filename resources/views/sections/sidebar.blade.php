@@ -61,19 +61,24 @@
 
         @if(Auth::user()->role == 1)
         <li class="{{Request::segment(1) == 'dashboard' || Request::segment(1) == '' ? 'active' : ''}}">
-            <a href="/">
-                <i class='bx bxs-dashboard icon'></i>
-                <span class="link_name">Dashboard</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="/">Dashboard</a></li>
+            <div class="iocn-link">
+                <a href="/">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name">Dashboard</a></li>
+                <li><a href="/">Feeder</a></li>
+                <li><a href="/distribusi">Distribusi</a></li>
             </ul>
         </li>
         
         <li>
             <div class="iocn-link">
                 <a href="/khs">
-                    <i class='bx bx-collection'></i>
+                    <i class='bx bx-window-open'></i>
                     <span class="link_name">KHS</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow' ></i>
@@ -83,6 +88,15 @@
                 <li><a href="/khs">KHS</a></li>
                 <li><a href="/khs/designator">Designator</a></li>
             </ul>
+        </li>
+
+        <li>
+            <div class="iocn-link">
+                <a href="/usulan_olt">
+                    <i class='bx bx-trip'></i>
+                    <span class="link_name">Usulan OLT</span>
+                </a>
+            </div>
         </li>
         @endif
 

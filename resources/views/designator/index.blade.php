@@ -58,7 +58,7 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
-                "pageLength": 5,
+                "pageLength": 10,
                 "scrollX" : true,
                 fixedHeader: true
             });

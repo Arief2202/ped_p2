@@ -18,10 +18,10 @@ class CreateDesignatorsTable extends Migration
             $table->string("designator");
             $table->string("deskripsi");
             $table->string("satuan");
-            $table->integer("p5_material");
-            $table->integer("p5_jasa");
-            $table->integer("p10_material");
-            $table->integer("p10_jasa");
+            $table->integer("p5_material")->default(0);
+            $table->integer("p5_jasa")->default(0);
+            $table->integer("p10_material")->default(0);
+            $table->integer("p10_jasa")->default(0);
             $table->string("jenis_material")->nullable();
             $table->string("specs")->nullable();
             $table->timestamps();

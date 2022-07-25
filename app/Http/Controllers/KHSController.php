@@ -8,10 +8,9 @@ use App\Models\KHS;
 use App\Models\sto;
 use App\Models\witel;
 use App\Models\Designator;
+use App\Models\KHSDesignator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Desigator;
-use App\Models\KHSDesignator;
 
 class KHSController extends Controller
 {
@@ -27,6 +26,7 @@ class KHSController extends Controller
         return view('khs.index', [
              'khs' => $viewKHS,
              'designators' => $designator,
+             'khsd' => KHSDesignator::all(),
         ]);
     }
 
@@ -34,10 +34,25 @@ class KHSController extends Controller
         $viewKHS = KHS::all();
         $viewWitel = Witel::all();
         $viewKHSDesignator = KHSDesignator::all();
+        $viewDesignator = Designator::all();
         return view('dashboard.index', [
               'witels' => $viewWitel,
               'khss' => $viewKHS,
-              'khsd' => $viewKHSDesignator
+              'khsd' => KHSDesignator::all(),
+              'designator' => $viewDesignator
+        ]);
+    }
+
+    public function distribusi(){
+        $viewKHS = KHS::all();
+        $viewWitel = Witel::all();
+        $viewKHSDesignator = KHSDesignator::all();
+        $viewDesignator = Designator::all();
+        return view('dashboard.distribusi', [
+              'witels' => $viewWitel,
+              'khss' => $viewKHS,
+              'khsd' => $viewKHSDesignator,
+              'designator' => $viewDesignator
         ]);
     }
 
@@ -48,10 +63,12 @@ class KHSController extends Controller
      */
     public function showCreate(Request $request)
     {
+        $sto = sto::all();
         $witel = Witel::all();
-        $sto = sto::where('witel_id', '=', $request->witel)->get();
+        if($request->witel) $sto = sto::where('witel_id', '=', $request->witel)->get();
+        else if($request->modal_witel) $sto = sto::where('witel_id', '=', $request->modal_witel)->get();
         $designator = Designator::all();
-        return view('khs.create', compact('witel', 'sto', 'designator'));
+        return view('khs.create', compact('witel', 'sto', 'designator', 'request'));
     }
 
     /**
@@ -62,21 +79,38 @@ class KHSController extends Controller
      */
     public function saveCreate(Request $request)
     {
-        // dd($request);
         $validated = $request->validate([
             "witel_id" => "required",
             "sto_id" => "required",
             "id_project" => "required",
-            "program_sap" => "required",
             "tematik" => "required",
             "nama_lop_feeder" => "required",
-            "tahun" => "required",
+            "periode_pengajuan" => "required",
             "status" => "required",
-            "keterangan" => "",
-            "kebutuhan" => ""
+            "kebutuhan" => "",
+            "count" => "required",
+            "designator" => "required",
         ]);
+        
         KHS::create($validated);
+        $khs = KHS::get()->last();
+        $loop = 0;
+        foreach($validated['designator'] as $item){
+            KHSDesignator::create([
+                'khs_id' => $khs->id,
+                'designator_id' => $item,
+                'jumlah' => $validated['count'][$loop++]
+            ]);
+        }
         return redirect('/khs');
+    }
+
+    public function saveDesignator(Request $request){
+        // dd($request);
+        $witel = Witel::all();
+        $sto = sto::where('witel_id', '=', $request->witel)->get();
+        $designator = Designator::all();
+        return view('khs.create', compact('witel', 'sto', 'designator', 'request'));
     }
 
     /**

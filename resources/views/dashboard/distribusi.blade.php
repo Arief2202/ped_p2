@@ -23,18 +23,22 @@
                             <tr>
                                 <th class="th" scope="col">WITEL</th>
                                 <th class="th" scope="col">LOP</th>
-                                <th class="th" scope="col">288</th>
-                                <th class="th" scope="col">144</th>
-                                <th class="th" scope="col">96</th>
+                                <th class="th" scope="col">48</th>
+                                <th class="th" scope="col">36</th>
+                                <th class="th" scope="col">24</th>
+                                <th class="th" scope="col">12</th>
+                                <th class="th" scope="col">6</th>
                                 <th class="th" scope="col">Nilai</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach($witels as $witel)
                                 <?php
-                                    $total288 = 0;
-                                    $total144 = 0;
-                                    $total96 = 0;
+                                    $total48 = 0;
+                                    $total36 = 0;
+                                    $total24 = 0;
+                                    $total12 = 0;
+                                    $total6 = 0;
 
                                     $totalMaterial = 0;
                                     $totalJasa = 0;
@@ -51,9 +55,11 @@
                                             }
 
                                             if($khsdd->designator()->jenis_material == 'kabel'){
-                                                if($khsdd->designator()->specs == '288') $total288 += $khsdd->jumlah;
-                                                else if($khsdd->designator()->specs == '144') $total144 += $khsdd->jumlah;
-                                                else if($khsdd->designator()->specs == '96') $total96 += $khsdd->jumlah;
+                                                if($khsdd->designator()->specs == '48') $total48 += $khsdd->jumlah;
+                                                else if($khsdd->designator()->specs == '36') $total36 += $khsdd->jumlah;
+                                                else if($khsdd->designator()->specs == '24') $total24 += $khsdd->jumlah;
+                                                else if($khsdd->designator()->specs == '12') $total12 += $khsdd->jumlah;
+                                                else if($khsdd->designator()->specs == '6') $total6 += $khsdd->jumlah;
                                             }
                                         }
                                     }
@@ -63,9 +69,11 @@
                               <td>{{$witel['nama_witel']}}</td>
                               <td>{{$khss->where('witel_id', '=', $witel->id)->count()}}</td>
                               {{-- <td>{{$khsd->where('idkhs', '=', $khss->where('witel_id', '=', $witel->id))->total}} </td> --}}
-                              <td>{{$total288}} </td>
-                              <td>{{$total144}}</td>
-                              <td>{{$total96}}</td>
+                              <td>{{$total48}} </td>
+                              <td>{{$total36}}</td>
+                              <td>{{$total24}}</td>
+                              <td>{{$total12}}</td>
+                              <td>{{$total6}}</td>
                               <td>Rp {{ number_format($totalHarga, 0, ',', '.') }}</td>
                             </tr>
                             @endforeach

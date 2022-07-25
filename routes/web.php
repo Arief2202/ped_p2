@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChangeDarkModeController;
 use App\Http\Controllers\ChangeSidebarStateController;
 use App\Http\Controllers\KHSController;
+use App\Http\Controllers\UsulanOLTController;
 use App\Http\Controllers\DesignatorController;
 
 /*
@@ -36,12 +37,20 @@ Route::middleware(['auth'])->group(function(){
         // Route::get('/khs/create', 'showCreate');
     });
 
+    Route::controller(UsulanOLTController::class)->group(function () {
+        Route::get('/usulan_olt', 'read');
+        // Route::get('/khs', 'read');
+        // Route::get('/khs/create', 'showCreate');
+    });
+
     Route::controller(KHSController::class)->group(function () {
         Route::get('/khs', 'read');
         Route::get('/khs/create', 'showCreate');
-        Route::post('/khs/create', 'saveCreate');
+        Route::post('/khs/create', 'showCreate');
+        Route::post('/khs/create/submit', 'saveCreate');
         Route::get('/getSTO/{id}', 'getSTO');
         Route::get('/', 'dashboard');
+        Route::get('/distribusi', 'distribusi');
     });
     
     Route::post('/changeDarkMode', [ChangeDarkModeController::class, 'store']); 

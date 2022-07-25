@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         WitelSeeder::run();
         StoSeeder::run();
         DesignatorSeeder::run();
+        UsulanOLTSeeder::run();
     }
 }

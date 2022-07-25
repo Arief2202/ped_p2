@@ -18,13 +18,12 @@ class CreateKHSTable extends Migration
             $table->foreignId("witel_id");
             $table->foreignId("sto_id");
             $table->string("id_project");
-            $table->string("program_sap");
+            // $table->string("program_sap");
             $table->string("tematik");
             $table->string("nama_lop_feeder");
-            $table->integer("tahun");
+            $table->string("periode_pengajuan");
             $table->string("status");
             $table->string("kebutuhan")->nullable();
-            $table->string("keterangan")->nullable();
             $table->timestamps();
         });
     }
